@@ -1,0 +1,73 @@
+# ── Aakash Electronics · Apache Security Configuration ──
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove www (or add www — pick one and stick to it)
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# ── Security Headers ──
+<IfModule mod_headers.c>
+
+  # Prevent clickjacking — no one can embed your site in an iframe
+  Header always set X-Frame-Options "DENY"
+
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Control referrer information sent to external sites
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Restrict browser features (camera, mic, location — none needed on this site)
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+
+  # Force HTTPS for 1 year (only enable after you are certain HTTPS works correctly)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Content Security Policy — tightly scoped to what this site actually loads
+  # fonts.googleapis.com and fonts.gstatic.com for Google Fonts
+  # wa.me for WhatsApp links (handled as navigation, not a script src)
+  Header always set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-src 'https://maps.google.com'; object-src 'none'; base-uri 'self';"
+
+  # Remove server version info from responses
+  Header always unset X-Powered-By
+  Header always unset Server
+
+</IfModule>
+
+# ── Disable directory listing ──
+Options -Indexes
+
+# ── Block access to sensitive files ──
+<FilesMatch "(^\.htaccess|^\.env|\.log|\.bak|\.sql|\.sh|\.git)">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# ── Protect against common exploit scanners ──
+# Block requests with suspicious user agents
+RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|python|nikto|scan|acunetix|nessus|nmap) [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^$ [NC]
+RewriteRule .* - [F,L]
+
+# Block SQL injection / shell injection patterns in query strings
+RewriteCond %{QUERY_STRING} (union.*select|insert.*into|drop.*table|exec\(|eval\() [NC]
+RewriteRule .* - [F,L]
+
+# ── Caching for static assets ──
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css             "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/png            "access plus 3 months"
+  ExpiresByType image/jpeg           "access plus 3 months"
+  ExpiresByType image/webp           "access plus 3 months"
+  ExpiresByType image/svg+xml        "access plus 3 months"
+</IfModule>
+
+# ── Custom error pages ──
+ErrorDocument 403 /index.html
+ErrorDocument 404 /index.html
