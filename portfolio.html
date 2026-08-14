@@ -1,0 +1,410 @@
+<!-- Copyright © 2026 Aakash Electronics. All Rights Reserved.
+     Unauthorized copying or reproduction is strictly prohibited. -->
+
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3M3N1SLD9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3M3N1SLD9');
+</script>
+<meta charset="utf-8"/>
+<title>Product Portfolio — Aakash Electronics</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Aakash Electronics">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Browse the Aakash Electronics product portfolio online — flip through our full catalog brochure page by page."/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500;700&display=swap"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+
+/* ── Portfolio hero ── */
+.pf-hero {
+  background: var(--ink);
+  padding: 52px 0 44px;
+  position: relative;
+  overflow: hidden;
+}
+.pf-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 70% 50%, rgba(30,58,138,.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.pf-hero-inner { position: relative; z-index: 1 }
+.pf-hero-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #4a4a47; margin-bottom: 14px;
+}
+.pf-hero h1 {
+  font-size: 32px; font-weight: 800; color: #fff;
+  letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 10px;
+}
+.pf-hero h1 em { color: var(--blue-2); font-style: normal }
+.pf-hero-sub {
+  font-size: 15px; color: #5a5a58; line-height: 1.6; max-width: 560px; margin-bottom: 28px;
+}
+.pf-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center }
+.pf-hero-actions .btn-ghost { color: #fff; border-color: rgba(255,255,255,.18) }
+.pf-hero-actions .btn-ghost:hover { border-color: #fff }
+
+/* ── Viewer section ── */
+.pf-viewer-section { padding: 56px 0 88px; background: var(--bg-2) }
+.pf-viewer-shell {
+  display: flex; flex-direction: column; align-items: center; gap: 24px;
+}
+
+/* Loading state */
+.pf-loading {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  padding: 100px 20px; text-align: center;
+}
+.pf-spinner {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 3px solid var(--rule-2); border-top-color: var(--blue-2);
+  animation: pf-spin 0.8s linear infinite;
+}
+@keyframes pf-spin { to { transform: rotate(360deg) } }
+.pf-loading-text { font-size: 14px; color: var(--ink-3) }
+.pf-loading-text b { color: var(--ink); font-weight: 600 }
+.pf-error {
+  display: none; flex-direction: column; align-items: center; gap: 14px;
+  padding: 80px 20px; text-align: center; max-width: 440px;
+}
+.pf-error.on { display: flex }
+.pf-error p { font-size: 14px; color: var(--ink-3); line-height: 1.6 }
+
+/* Flipbook container */
+#flipbook-outer { width: 100%; display: flex; justify-content: center }
+#flipbook-outer.hidden { display: none }
+#flipbook { touch-action: pan-y }
+.pf-page {
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.pf-page canvas { width: 100%; height: 100%; display: block }
+.pf-page.pf-cover { background: var(--ink) }
+
+/* Controls */
+.pf-controls {
+  display: flex; align-items: center; gap: 18px;
+  padding: 10px 8px;
+}
+.pf-controls.hidden { display: none }
+.pf-nav-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--rule-2);
+  display: grid; place-items: center; cursor: pointer;
+  color: var(--ink); transition: background .15s, color .15s, border-color .15s;
+}
+.pf-nav-btn:hover:not(:disabled) { background: var(--ink); color: #fff; border-color: var(--ink) }
+.pf-nav-btn:disabled { opacity: .35; cursor: default }
+.pf-page-indicator {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-3);
+  letter-spacing: 0.06em; min-width: 84px; text-align: center;
+}
+.pf-hint {
+  font-size: 12px; color: var(--ink-3); text-align: center; max-width: 440px;
+}
+
+@media (max-width: 680px) {
+  .pf-hero h1 { font-size: 26px }
+  .pf-viewer-section { padding: 40px 0 64px }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Utility bar -->
+  <div class="utility">
+    <div class="wrap">
+      <div class="ut-left">
+        <span>OPEN MON–SAT · 10:00–20:00</span>
+        <span>S.P ROAD, BENGALURU</span>
+      </div>
+      <div class="ut-right">
+        <span class="phone">+91 99800 22755 &nbsp;·&nbsp; 080 4114 0174</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="main-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="Aakash Electronics" class="brand-logo-main" id="brand-logo-img">
+        <span class="brand-mark" id="brand-fallback-letter" style="display:none"><span>AE</span></span>
+        <span>
+          <div class="brand-name">Aakash Electronics</div>
+          <div class="brand-sub">SP Road · Bengaluru</div>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#about">About</a>
+        <a href="products.html">Catalog</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="index.html#contact" style="justify-content:center;">Visit Shop</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="products.html">Component Catalog</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#contact" class="mob-cta">Visit Shop</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="pf-hero">
+    <div class="wrap pf-hero-inner">
+      <div class="pf-hero-eyebrow">Aakash Electronics · SP Road, Bengaluru</div>
+      <h1>Product <em>Portfolio</em></h1>
+      <p class="pf-hero-sub">Flip through our full product portfolio below, just like a printed catalog.</p>
+      <div class="pf-hero-actions">
+        <a class="btn btn-primary" href="#viewer">
+          Start Reading
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Viewer -->
+  <section class="pf-viewer-section" id="viewer">
+    <div class="wrap pf-viewer-shell">
+
+      <div class="pf-loading" id="pf-loading">
+        <div class="pf-spinner"></div>
+        <div class="pf-loading-text" id="pf-loading-text">Loading portfolio…</div>
+      </div>
+
+      <div class="pf-error" id="pf-error">
+        <p>We couldn't load the portfolio viewer in this browser. Please try again on a different browser or device, or <a href="index.html#contact" style="color:var(--blue)">get in touch</a> and we'll be happy to help.</p>
+      </div>
+
+      <div id="flipbook-outer" class="hidden">
+        <div id="flipbook"></div>
+      </div>
+
+      <div class="pf-controls hidden" id="pf-controls">
+        <button class="pf-nav-btn" id="pf-prev" aria-label="Previous page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="pf-page-indicator" id="pf-indicator">— / —</span>
+        <button class="pf-nav-btn" id="pf-next" aria-label="Next page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <p class="pf-hint hidden" id="pf-hint">Click or drag a page corner to turn the page · use the arrow keys · pinch or scroll to zoom on mobile</p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top footer-top-v2">
+        <div>
+          <div class="footer-shop-name">Aakash Electronics</div>
+          <div class="footer-shop-desc">30+ years supplying electronic components to engineers, students, and makers, from the same SP Road counter since 1994.</div>
+          <a href="https://wa.me/919980022755?text=Hi%20Aakash%20Electronics%2C%20I%20would%20like%20to%20enquire%20about%20components." target="_blank" rel="noopener" class="footer-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div>
+          <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">SHOP DETAILS</h5>
+          <div class="footer-dl">
+            <div class="footer-dl-row"><span class="footer-dl-k">Address</span><span class="footer-dl-v">#84/4, 1st Floor, N.G.M Plaza, S.P Road, Bengaluru – 560002</span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Hours</span><span class="footer-dl-v">Mon–Sat · 10:00 AM – 8:00 PM</span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Phone</span><span class="footer-dl-v"><a href="tel:+919980022755">+91 99800 22755</a><br><a href="tel:+918041140174">080 4114 0174</a></span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Email</span><span class="footer-dl-v"><a href="mailto:aakashelectronics.blr@gmail.com">aakashelectronics.blr@gmail.com</a></span></div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-link-group">
+            <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">NAVIGATE</h5>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="products.html">Component Catalog</a>
+              <a href="index.html#contact">Contact Us</a>
+            </div>
+          </div>
+          <div class="footer-link-group">
+            <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">LEGAL</h5>
+            <div class="footer-links">
+              <a href="./terms.html">Terms &amp; Conditions</a>
+              <a href="./terms.html#privacy">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Aakash Electronics · SP Road, Bengaluru · Est. 1994</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="vendor/pdfjs/pdf.min.js"></script>
+<script src="vendor/pageflip/page-flip.browser.js"></script>
+<script>
+(function(){
+
+  /* ── Logo fallback ── */
+  var li = document.getElementById('brand-logo-img');
+  var lf = document.getElementById('brand-fallback-letter');
+  function hideLogo(){ if(li) li.style.display='none'; if(lf) lf.style.display='flex'; }
+  if(li){ li.addEventListener('error', hideLogo); if(li.complete && li.naturalWidth===0) hideLogo(); else if(lf) lf.style.display='none'; }
+
+  /* ── Sticky header shadow ── */
+  var hdr = document.getElementById('main-header');
+  if(hdr) window.addEventListener('scroll', function(){ hdr.classList.toggle('scrolled', window.scrollY>10); }, {passive:true});
+
+  /* ── Mobile hamburger ── */
+  var hbg = document.getElementById('nav-hamburger');
+  var mnv = document.getElementById('mobile-nav');
+  if(hbg && mnv){
+    hbg.addEventListener('click', function(){
+      var o = mnv.classList.toggle('open');
+      hbg.classList.toggle('open', o);
+      hbg.setAttribute('aria-expanded', o);
+    });
+    mnv.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mnv.classList.remove('open'); hbg.classList.remove('open');
+        hbg.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* ══ PORTFOLIO FLIPBOOK ══ */
+  var PDF_URL = 'product-portfolio.pdf';
+
+  var loadingEl   = document.getElementById('pf-loading');
+  var loadingTxt  = document.getElementById('pf-loading-text');
+  var errorEl     = document.getElementById('pf-error');
+  var outerEl     = document.getElementById('flipbook-outer');
+  var flipbookEl  = document.getElementById('flipbook');
+  var controlsEl  = document.getElementById('pf-controls');
+  var hintEl      = document.getElementById('pf-hint');
+  var prevBtn     = document.getElementById('pf-prev');
+  var nextBtn     = document.getElementById('pf-next');
+  var indicatorEl = document.getElementById('pf-indicator');
+
+  function showError(){
+    loadingEl.style.display = 'none';
+    errorEl.classList.add('on');
+  }
+
+  if (!window.pdfjsLib || !window.St || !window.St.PageFlip) {
+    showError();
+    return;
+  }
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.js';
+
+  var pageFlip = null;
+  var totalPages = 0;
+
+  function updateIndicator(i){
+    indicatorEl.textContent = (i+1) + ' / ' + totalPages;
+    prevBtn.disabled = i <= 0;
+    nextBtn.disabled = i >= totalPages - 1;
+  }
+
+  pdfjsLib.getDocument(PDF_URL).promise.then(function(pdf){
+    totalPages = pdf.numPages;
+
+    return pdf.getPage(1).then(function(firstPage){
+      var vp = firstPage.getViewport({ scale: 1 });
+      var baseWidth = 640;
+      var baseHeight = Math.round(baseWidth * (vp.height / vp.width));
+
+      var pageEls = [];
+      var renderNext = function(n){
+        if (n > totalPages) return Promise.resolve();
+        loadingTxt.innerHTML = 'Rendering page <b>' + n + '</b> of <b>' + totalPages + '</b>…';
+        return pdf.getPage(n).then(function(page){
+          var viewport = page.getViewport({ scale: baseWidth * 2 / vp.width });
+          var canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          return page.render({ canvasContext: canvas.getContext('2d'), viewport: viewport }).promise.then(function(){
+            var pageDiv = document.createElement('div');
+            pageDiv.className = 'pf-page' + (n === 1 || n === totalPages ? ' pf-cover' : '');
+            pageDiv.appendChild(canvas);
+            flipbookEl.appendChild(pageDiv);
+            pageEls.push(pageDiv);
+            return renderNext(n + 1);
+          });
+        });
+      };
+
+      return renderNext(1).then(function(){
+        pageFlip = new St.PageFlip(flipbookEl, {
+          width: baseWidth,
+          height: baseHeight,
+          size: 'stretch',
+          minWidth: 280,
+          maxWidth: 900,
+          minHeight: 360,
+          maxHeight: 1200,
+          maxShadowOpacity: 0.5,
+          showCover: true,
+          usePortrait: true,
+          mobileScrollSupport: true,
+          flippingTime: 600
+        });
+        pageFlip.loadFromHTML(pageEls);
+        pageFlip.on('flip', function(e){ updateIndicator(e.data); });
+        updateIndicator(0);
+
+        loadingEl.style.display = 'none';
+        outerEl.classList.remove('hidden');
+        controlsEl.classList.remove('hidden');
+        hintEl.classList.remove('hidden');
+
+        prevBtn.addEventListener('click', function(){ pageFlip.flipPrev(); });
+        nextBtn.addEventListener('click', function(){ pageFlip.flipNext(); });
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+          else if (e.key === 'ArrowRight') pageFlip.flipNext();
+        });
+      });
+    });
+  }).catch(function(err){
+    console.error('Portfolio viewer failed to load:', err);
+    showError();
+  });
+
+})();
+</script>
+</body>
+</html>

@@ -30,7 +30,8 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   # Content Security Policy — tightly scoped to what this site actually loads
   # fonts.googleapis.com and fonts.gstatic.com for Google Fonts
   # wa.me for WhatsApp links (handled as navigation, not a script src)
-  Header always set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-src 'https://maps.google.com'; object-src 'none'; base-uri 'self';"
+  # worker-src/connect-src 'self' for the PDF.js portfolio viewer (vendor/pdfjs, product-portfolio.pdf)
+  Header always set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; worker-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src https://maps.google.com; object-src 'none'; base-uri 'self';"
 
   # Remove server version info from responses
   Header always unset X-Powered-By
