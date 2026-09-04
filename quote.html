@@ -1,0 +1,301 @@
+<!-- Copyright © 2026 Aakash Electronics. All Rights Reserved.
+     Unauthorized copying or reproduction is strictly prohibited. -->
+
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3M3N1SLD9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3M3N1SLD9');
+</script>
+<meta charset="utf-8"/>
+<title>Request a Quote — Aakash Electronics</title>
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Aakash Electronics">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Request a bulk quote from Aakash Electronics — submit your company details and requirement, and our trade desk will get back to you."/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500;700&display=swap"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+
+/* ── Quote hero ── */
+.qt-hero { background: var(--ink); padding: 52px 0 44px; position: relative; overflow: hidden }
+.qt-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 70% 50%, rgba(30,58,138,.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.qt-hero-inner { position: relative; z-index: 1 }
+.qt-hero-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a47; margin-bottom: 14px }
+.qt-hero h1 { font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 10px }
+.qt-hero h1 em { color: var(--blue-2); font-style: normal }
+.qt-hero-sub { font-size: 15px; color: #5a5a58; line-height: 1.6; max-width: 560px }
+
+/* ── Body layout ── */
+.qt-section { padding: 56px 0 96px }
+.qt-layout { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: start }
+
+/* Side info */
+.qt-side h3 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 14px }
+.qt-side-item { display: flex; gap: 12px; margin-bottom: 22px }
+.qt-side-item svg { flex-shrink: 0; color: var(--blue-2); margin-top: 2px }
+.qt-side-item p { font-size: 13.5px; color: var(--ink-3); line-height: 1.6 }
+.qt-side-item p b { color: var(--ink); display: block; font-size: 13px; margin-bottom: 2px }
+.qt-alt {
+  margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--rule);
+}
+.qt-alt p { font-size: 13px; color: var(--ink-3); margin-bottom: 12px }
+.qt-alt a { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 10px }
+.qt-alt a:hover { color: var(--blue) }
+.qt-alt svg { color: var(--blue-2) }
+
+/* Google Form embed */
+.qt-gform-card {
+  position: relative; border: 1px solid var(--rule); border-radius: 12px;
+  overflow: hidden; background: var(--bg); min-height: 1060px;
+}
+.qt-gform-frame {
+  width: 100%; height: 1060px; border: none; display: block; position: relative; z-index: 1;
+  background: var(--bg);
+}
+.qt-gform-loading {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 14px; color: var(--ink-3); font-size: 14px; z-index: 0;
+}
+.qt-spinner {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 3px solid var(--rule-2); border-top-color: var(--blue-2);
+  animation: qt-spin 0.8s linear infinite;
+}
+@keyframes qt-spin { to { transform: rotate(360deg) } }
+.qt-note { font-size: 12px; color: var(--ink-3); margin-top: 14px; text-align: center }
+
+@media (max-width: 900px) {
+  .qt-layout { grid-template-columns: 1fr }
+}
+@media (max-width: 560px) {
+  .qt-hero h1 { font-size: 26px }
+  .qt-gform-card, .qt-gform-frame { min-height: 1220px; height: 1220px }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Utility bar -->
+  <div class="utility">
+    <div class="wrap">
+      <div class="ut-left">
+        <span>OPEN MON–SAT · 10:00–20:00</span>
+        <span>S.P ROAD, BENGALURU</span>
+      </div>
+      <div class="ut-right">
+        <span class="phone">+91 99800 22755 &nbsp;·&nbsp; 080 4114 0174</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="main-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="Aakash Electronics" class="brand-logo-main" id="brand-logo-img">
+        <span class="brand-mark" id="brand-fallback-letter" style="display:none"><span>AE</span></span>
+        <span>
+          <div class="brand-name">Aakash Electronics</div>
+          <div class="brand-sub">SP Road · Bengaluru</div>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#about">About</a>
+        <a href="products.html">Search Parts</a>
+        <a href="portfolio.html">Catalogues</a>
+        <a href="guides.html">Guides</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="index.html#contact" style="justify-content:center;">Visit Shop</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="products.html">Search Parts</a>
+      <a href="portfolio.html">Catalogues</a>
+      <a href="guides.html">Guides</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#contact" class="mob-cta">Visit Shop</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="qt-hero">
+    <div class="wrap qt-hero-inner">
+      <div class="qt-hero-eyebrow">Aakash Electronics · Trade Desk</div>
+      <h1>Request a <em>Quote</em></h1>
+      <p class="qt-hero-sub">Tell us what you need and we'll get back to you with pricing and availability. For bulk orders, BOM sourcing, or anything you'd rather not explain over the phone.</p>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <section class="qt-section">
+    <div class="wrap qt-layout">
+
+      <div class="qt-side">
+        <h3>What Happens Next</h3>
+        <div class="qt-side-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <p><b>We review your requirement</b>Our trade desk goes through your BOM or requirement, whether it's one line item or a full list.</p>
+        </div>
+        <div class="qt-side-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p><b>You hear back, same or next business day</b>We'll reply by email with pricing, availability, and any substitutions worth flagging.</p>
+        </div>
+        <div class="qt-side-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          <p><b>No obligation</b>A quote is just a quote. GST invoicing, payment terms, and dispatch get worked out once you're ready to order.</p>
+        </div>
+
+        <div class="qt-alt">
+          <p>Prefer to talk it through instead?</p>
+          <a href="tel:+919980022755">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +91 99800 22755
+          </a>
+          <a href="https://wa.me/919980022755?text=Hi%20Aakash%20Electronics%2C%20I%27d%20like%20a%20quote." target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp
+          </a>
+          <a href="mailto:aakashelectronics.blr@gmail.com">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            aakashelectronics.blr@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="qt-form-outer">
+        <div class="qt-gform-card">
+          <div class="qt-gform-loading" id="qt-gform-loading">
+            <div class="qt-spinner"></div>
+            <span>Loading form…</span>
+          </div>
+          <iframe
+            id="qt-gform-frame"
+            class="qt-gform-frame"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSe0PpGK_6Ri40uc59mmiP66EL8mO4o1x5eIkUA4hrrJzCVKtg/viewform?embedded=true"
+            title="Request a Quote form">
+            Loading…
+          </iframe>
+        </div>
+        <p class="qt-note">We'll only use these details to respond to your request.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top footer-top-v2">
+        <div>
+          <div class="footer-shop-name">Aakash Electronics</div>
+          <div class="footer-shop-desc">30+ years supplying electronic components to engineers, students, and makers, from the same SP Road counter since 1994.</div>
+          <a href="https://wa.me/919980022755?text=Hi%20Aakash%20Electronics%2C%20I%20would%20like%20to%20enquire%20about%20components." target="_blank" rel="noopener" class="footer-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div>
+          <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">SHOP DETAILS</h5>
+          <div class="footer-dl">
+            <div class="footer-dl-row"><span class="footer-dl-k">Address</span><span class="footer-dl-v">#84/4, 1st Floor, N.G.M Plaza, S.P Road, Bengaluru – 560002</span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Hours</span><span class="footer-dl-v">Mon–Sat · 10:00 AM – 8:00 PM</span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Phone</span><span class="footer-dl-v"><a href="tel:+919980022755">+91 99800 22755</a><br><a href="tel:+918041140174">080 4114 0174</a></span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Email</span><span class="footer-dl-v"><a href="mailto:aakashelectronics.blr@gmail.com">aakashelectronics.blr@gmail.com</a></span></div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-link-group">
+            <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">NAVIGATE</h5>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="products.html">Search Parts</a>
+              <a href="portfolio.html">Catalogues</a>
+              <a href="index.html#contact">Contact Us</a>
+              <a href="quote.html">Request a Quote</a>
+            </div>
+          </div>
+          <div class="footer-link-group">
+            <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">LEGAL</h5>
+            <div class="footer-links">
+              <a href="./terms.html">Terms &amp; Conditions</a>
+              <a href="./terms.html#privacy">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Aakash Electronics · SP Road, Bengaluru · Est. 1994</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+  /* ── Logo fallback ── */
+  var li = document.getElementById('brand-logo-img');
+  var lf = document.getElementById('brand-fallback-letter');
+  function hideLogo(){ if(li) li.style.display='none'; if(lf) lf.style.display='flex'; }
+  if(li){ li.addEventListener('error', hideLogo); if(li.complete && li.naturalWidth===0) hideLogo(); else if(lf) lf.style.display='none'; }
+
+  /* ── Sticky header shadow ── */
+  var hdr = document.getElementById('main-header');
+  if(hdr) window.addEventListener('scroll', function(){ hdr.classList.toggle('scrolled', window.scrollY>10); }, {passive:true});
+
+  /* ── Mobile hamburger ── */
+  var hbg = document.getElementById('nav-hamburger');
+  var mnv = document.getElementById('mobile-nav');
+  if(hbg && mnv){
+    hbg.addEventListener('click', function(){
+      var o = mnv.classList.toggle('open');
+      hbg.classList.toggle('open', o);
+      hbg.setAttribute('aria-expanded', o);
+    });
+    mnv.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mnv.classList.remove('open'); hbg.classList.remove('open');
+        hbg.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* ══ QUOTE FORM (Google Form embed) ══ */
+  var gformFrame = document.getElementById('qt-gform-frame');
+  var gformLoading = document.getElementById('qt-gform-loading');
+  if (gformFrame && gformLoading) {
+    gformFrame.addEventListener('load', function(){ gformLoading.style.display = 'none'; });
+  }
+
+})();
+</script>
+</body>
+</html>

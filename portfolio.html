@@ -14,12 +14,12 @@
 </script>
 <meta charset="utf-8"/>
 <title>Product Portfolio — Aakash Electronics</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Aakash Electronics">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -128,6 +128,37 @@
   .pf-hero h1 { font-size: 26px }
   .pf-viewer-section { padding: 40px 0 64px }
 }
+
+/* ── Category catalogues ── */
+.cc-section { padding: 72px 0 88px }
+.cc-head { margin-bottom: 40px; max-width: 640px }
+.cc-tag {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--blue-2); margin-bottom: 12px;
+}
+.cc-head h2 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px }
+.cc-head p { color: var(--ink-3); font-size: 15px; line-height: 1.6 }
+.cc-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.cc-card {
+  display: block; border: 1px solid var(--rule); border-radius: 10px;
+  padding: 24px 22px; background: var(--bg);
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.cc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--blue) }
+.cc-card-num {
+  font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--blue-2);
+  letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.cc-card-name { font-size: 15.5px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em }
+.cc-card-desc { font-size: 13px; color: var(--ink-3); line-height: 1.55; margin-bottom: 16px; min-height: 40px }
+.cc-card-cta {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--blue-2); display: flex; align-items: center; gap: 6px;
+}
+@media (max-width: 900px) { .cc-grid { grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 600px) { .cc-grid { grid-template-columns: 1fr } .cc-section { padding: 48px 0 64px } }
 </style>
 </head>
 <body>
@@ -150,7 +181,7 @@
   <header class="header" id="main-header">
     <div class="wrap">
       <a class="brand" href="index.html">
-        <img src="logo.png" alt="Aakash Electronics" class="brand-logo-main" id="brand-logo-img">
+        <img src="images/logo.png" alt="Aakash Electronics" class="brand-logo-main" id="brand-logo-img">
         <span class="brand-mark" id="brand-fallback-letter" style="display:none"><span>AE</span></span>
         <span>
           <div class="brand-name">Aakash Electronics</div>
@@ -159,8 +190,9 @@
       </a>
       <nav class="nav">
         <a href="index.html#about">About</a>
-        <a href="products.html">Catalog</a>
-        <a href="portfolio.html">Portfolio</a>
+        <a href="products.html">Search Parts</a>
+        <a href="portfolio.html">Catalogues</a>
+        <a href="guides.html">Guides</a>
         <a href="index.html#contact">Contact</a>
         <a class="nav-cta" href="index.html#contact" style="justify-content:center;">Visit Shop</a>
         <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
@@ -171,8 +203,9 @@
     <div class="mobile-nav" id="mobile-nav">
       <a href="index.html">Home</a>
       <a href="index.html#about">About</a>
-      <a href="products.html">Component Catalog</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="products.html">Search Parts</a>
+      <a href="portfolio.html">Catalogues</a>
+        <a href="guides.html">Guides</a>
       <a href="index.html#contact">Contact</a>
       <a href="index.html#contact" class="mob-cta">Visit Shop</a>
     </div>
@@ -225,6 +258,18 @@
     </div>
   </section>
 
+  <!-- Category Catalogues -->
+  <section class="cc-section" id="catalogues">
+    <div class="wrap">
+      <div class="cc-head">
+        <div class="cc-tag">BY CATEGORY</div>
+        <h2>A closer look, category by category.</h2>
+        <p>The portfolio above is the overview. These go deeper into each category — the same page-by-page reading experience, focused on one part of what we stock.</p>
+      </div>
+      <div class="cc-grid" id="cc-grid"></div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="wrap">
@@ -251,8 +296,9 @@
             <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">NAVIGATE</h5>
             <div class="footer-links">
               <a href="index.html">Home</a>
-              <a href="products.html">Component Catalog</a>
+              <a href="products.html">Search Parts</a>
               <a href="index.html#contact">Contact Us</a>
+              <a href="quote.html">Request a Quote</a>
             </div>
           </div>
           <div class="footer-link-group">
@@ -272,10 +318,14 @@
 
 </div>
 
-<script src="vendor/pdfjs/pdf.min.js"></script>
+<script type="module">
+  import * as pdfjsLib from './vendor/pdfjs/pdf.min.mjs';
+  window.pdfjsLib = pdfjsLib;
+  window.dispatchEvent(new Event('pdfjs-loaded'));
+</script>
 <script src="vendor/pageflip/page-flip.browser.js"></script>
 <script>
-(function(){
+function main(){
 
   /* ── Logo fallback ── */
   var li = document.getElementById('brand-logo-img');
@@ -304,8 +354,38 @@
     });
   }
 
+  /* ══ CATEGORY CATALOGUES GRID ══ */
+  var CATALOGUES = [
+    { num: '01', slug: 'sensor-modules',          name: 'Sensor Modules',              desc: 'PIR, gas, temperature, RFID, and RF sensor modules.' },
+    { num: '02', slug: 'boards-displays',         name: 'Boards &amp; Displays',       desc: 'Development boards, LCDs, OLEDs, and display modules.' },
+    { num: '03', slug: 'wireless-connectivity',   name: 'Wireless &amp; Connectivity', desc: 'Wi-Fi, Bluetooth, RF, and GSM modules.' },
+    { num: '04', slug: 'amplifier-audio-boards',  name: 'Amplifier &amp; Audio Boards', desc: 'Audio amplifier ICs, boards, and modules.' },
+    { num: '05', slug: 'power-voltage-modules',   name: 'Power &amp; Voltage Modules', desc: 'Regulators, converters, and voltage modules.' },
+    { num: '06', slug: 'control-battery-modules', name: 'Control &amp; Battery Modules', desc: 'Microcontroller, relay, and battery management modules.' },
+    { num: '07', slug: 'motors-motion',           name: 'Motors &amp; Motion',         desc: 'Motors, drivers, and motion-control modules.' },
+    { num: '08', slug: 'robotics-mechanical',     name: 'Robotics &amp; Mechanical',   desc: 'Chassis, wheels, brackets, and mechanical parts.' },
+    { num: '09', slug: 'accessories-diy-kits',    name: 'Accessories &amp; DIY Kits',  desc: 'Starter kits, tools, and accessories.' },
+    { num: '10', slug: 'cables-leads',            name: 'Cables &amp; Leads',          desc: 'Wires, leads, and cable assemblies.' },
+    { num: '11', slug: 'power-supplies-adaptors', name: 'Power Supplies &amp; Adaptors', desc: 'SMPS units, laptop adaptors, and regulated supplies.' },
+    { num: '12', slug: 'connectors-sockets',      name: 'Connectors &amp; Sockets',    desc: 'Connectors, sockets, and terminals.' },
+    { num: '13', slug: 'speakers-audio-hardware', name: 'Speakers &amp; Audio Hardware', desc: 'Speakers, drivers, and audio hardware.' },
+    { num: '14', slug: 'switches-potentiometers', name: 'Switches &amp; Potentiometers', desc: 'Toggle, tact, and rocker switches, plus potentiometers.' },
+    { num: '15', slug: 'tools-test-gear',         name: 'Tools &amp; Test Gear',       desc: 'Soldering equipment, hand tools, and test instruments.' }
+  ];
+  var ccGrid = document.getElementById('cc-grid');
+  if (ccGrid) {
+    ccGrid.innerHTML = CATALOGUES.map(function(c){
+      return '<a class="cc-card" href="catalogue.html?doc=' + c.slug + '">' +
+        '<div class="cc-card-num">' + c.num + '</div>' +
+        '<div class="cc-card-name">' + c.name + '</div>' +
+        '<div class="cc-card-desc">' + c.desc + '</div>' +
+        '<div class="cc-card-cta">Read Catalogue <span class="arrow">→</span></div>' +
+      '</a>';
+    }).join('');
+  }
+
   /* ══ PORTFOLIO FLIPBOOK ══ */
-  var PDF_URL = 'product-portfolio.pdf';
+  var PDF_URL = 'pdfs/product-portfolio.pdf';
 
   var loadingEl   = document.getElementById('pf-loading');
   var loadingTxt  = document.getElementById('pf-loading-text');
@@ -328,7 +408,7 @@
     return;
   }
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.mjs';
 
   var pageFlip = null;
   var totalPages = 0;
@@ -339,7 +419,7 @@
     nextBtn.disabled = i >= totalPages - 1;
   }
 
-  pdfjsLib.getDocument(PDF_URL).promise.then(function(pdf){
+  pdfjsLib.getDocument({ url: PDF_URL }).promise.then(function(pdf){
     totalPages = pdf.numPages;
 
     return pdf.getPage(1).then(function(firstPage){
@@ -404,7 +484,8 @@
     showError();
   });
 
-})();
+}
+if (window.pdfjsLib) { main(); } else { window.addEventListener('pdfjs-loaded', main); }
 </script>
 </body>
 </html>

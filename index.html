@@ -18,12 +18,12 @@
 </script>
 <meta charset="utf-8"/>
 <title>Aakash Electronics — Components for Industry &amp; Makers</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Aakash Electronics">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -417,6 +417,58 @@
   .vtl-item { grid-template-columns: 56px 1fr; gap: 12px }
 }
 
+/* ── Two ways to explore ── */
+.explore-head { margin-bottom: 40px; max-width: 620px }
+.explore-head .section-tag { margin-bottom: 16px }
+.explore-head h2 { font-size: 32px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; margin-bottom: 12px }
+.explore-head h2 em { font-style: italic; color: var(--blue); font-weight: 600 }
+.explore-head p { margin-top: 0 }
+.explore-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  margin-top: 8px;
+}
+.explore-card {
+  position: relative; display: block; overflow: hidden;
+  border: 1px solid var(--rule); border-radius: 12px;
+  padding: 32px 30px 30px; background: var(--bg);
+  transition: box-shadow .25s, transform .25s, border-color .25s;
+}
+.explore-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px) }
+.explore-search:hover { border-color: var(--blue) }
+.explore-read:hover { border-color: var(--red) }
+.explore-icon {
+  width: 48px; height: 48px; border-radius: 10px;
+  display: grid; place-items: center; margin-bottom: 20px;
+  color: #fff;
+}
+.explore-search .explore-icon { background: linear-gradient(135deg, var(--blue), var(--blue-2)) }
+.explore-read .explore-icon { background: linear-gradient(135deg, var(--red), var(--red-2)) }
+.explore-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  color: var(--ink-3); margin-bottom: 10px;
+}
+.explore-card h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--ink) }
+.explore-card p { font-size: 14px; color: var(--ink-3); line-height: 1.6; margin-bottom: 22px; max-width: 42ch }
+.explore-cta {
+  font-size: 14px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;
+}
+.explore-search .explore-cta { color: var(--blue) }
+.explore-read .explore-cta { color: var(--red) }
+.explore-card .arrow { transition: transform .2s }
+.explore-card:hover .arrow { transform: translateX(4px) }
+/* Page-curl corner detail — a small nod to the flipbook interaction itself */
+.explore-corner {
+  position: absolute; right: 0; bottom: 0; width: 34px; height: 34px;
+  background: linear-gradient(135deg, transparent 50%, var(--bg-2) 50%);
+  border-top: 1px solid var(--rule); border-left: 1px solid var(--rule);
+  border-radius: 0 0 0 4px;
+  transition: width .25s, height .25s;
+}
+.explore-read:hover .explore-corner { width: 52px; height: 52px }
+@media (max-width: 780px) {
+  .explore-grid { grid-template-columns: 1fr }
+}
+
 /* ── FAQ section ── */
 .faq-list { max-width: 740px; }
 .faq-item { border-bottom: 1px solid var(--rule); }
@@ -518,7 +570,7 @@
   <header class="header" id="main-header">
     <div class="wrap">
       <a class="brand" href="index.html">
-        <img src="logo.png" alt="Aakash Electronics" class="brand-logo-main" id="brand-logo-img">
+        <img src="images/logo.png" alt="Aakash Electronics" class="brand-logo-main" id="brand-logo-img">
         <span class="brand-mark" id="brand-fallback-letter" style="display:none"><span>AE</span></span>
         <div>
           <div class="brand-name">Aakash Electronics</div>
@@ -527,8 +579,9 @@
       </a>
       <nav class="nav">
         <a href="#about" data-i18n="nav_about">About</a>
-        <a href="products.html">Catalog</a>
-        <a href="portfolio.html">Portfolio</a>
+        <a href="products.html">Search Parts</a>
+        <a href="portfolio.html">Catalogues</a>
+        <a href="guides.html">Guides</a>
         <a href="#contact">Contact</a>
         <a class="nav-cta" href="#contact" style="justify-content:center;">
           <span data-i18n="nav_visit">Visit Shop</span>
@@ -542,8 +595,9 @@
     <!-- Mobile navigation panel -->
     <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile menu">
       <a href="#about" class="mob-link">About</a>
-      <a href="products.html" class="mob-link">Component Catalog</a>
-      <a href="portfolio.html" class="mob-link">Portfolio</a>
+      <a href="products.html" class="mob-link">Search Parts</a>
+      <a href="portfolio.html" class="mob-link">Catalogues</a>
+      <a href="guides.html" class="mob-link">Guides</a>
       <a href="#contact" class="mob-link">Contact</a>
       <a href="#contact" class="mob-cta">Visit Shop</a>
     </div>
@@ -552,7 +606,7 @@
 
   <!-- ══ HERO ══ -->
   <section class="hero">
-    <video class="hero-video-bg" src="hero-bg.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <video class="hero-video-bg" src="videos/hero-bg.mp4" autoplay muted loop playsinline preload="auto"></video>
     <div class="hero-grid"></div>
     <div class="wrap">
       <div class="hero-body">
@@ -627,12 +681,47 @@
     </div>
   </section>
 
+  <!-- ══ TWO WAYS TO EXPLORE ══ -->
+  <section class="section explore-section">
+    <div class="wrap">
+      <div class="explore-head">
+        <div class="section-tag">TWO WAYS TO EXPLORE</div>
+        <h2>Know what you need, <em>or just browsing?</em></h2>
+        <p class="cat-lede-fixed">Search our live inventory by part number, or flip through our fully illustrated catalogues, just like a printed book.</p>
+      </div>
+      <div class="explore-grid">
+
+        <a class="explore-card explore-search" href="products.html">
+          <div class="explore-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="explore-eyebrow">SEARCH</div>
+          <h3>Find a part instantly</h3>
+          <p>Know your part number or name? Search 700+ components and get results as you type.</p>
+          <div class="explore-cta">Search Parts <span class="arrow">→</span></div>
+        </a>
+
+        <a class="explore-card explore-read" href="portfolio.html">
+          <div class="explore-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5.5C4 4.5 7 4 12 5.5C17 4 20 4.5 22 5.5V19C20 18 17 17.5 12 19C7 17.5 4 18 2 19V5.5Z"/><line x1="12" y1="5.5" x2="12" y2="19"/></svg>
+          </div>
+          <div class="explore-eyebrow">BROWSE</div>
+          <h3>Read our catalogues</h3>
+          <p>16 illustrated catalogues: the full portfolio plus 15 category deep-dives. Flip through them page by page.</p>
+          <div class="explore-cta">Browse Catalogues <span class="arrow">→</span></div>
+          <div class="explore-corner"></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ══ B2B / INDUSTRY ══ -->
   <section class="section bg-alt">
     <div class="wrap">
       <div class="two-col">
         <div class="img">
-          <video src="bulk-order.mp4" autoplay muted loop playsinline preload="auto"
+          <video src="videos/bulk-order.mp4" autoplay muted loop playsinline preload="auto"
             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
           </video>
         </div>
@@ -645,7 +734,7 @@
             <li data-i18n="bulk_b2">GST invoicing · Cash, UPI &amp; NEFT accepted</li>
             <li data-i18n="bulk_b4">Electronic components across 12+ categories</li>
           </ul>
-          <a class="btn btn-primary" href="#contact">
+          <a class="btn btn-primary" href="quote.html">
             <span data-i18n="bulk_cta">Request a Quote</span>
             <span class="arrow">→</span>
           </a>
@@ -659,7 +748,7 @@
     <div class="wrap">
       <div class="two-col" style="direction:rtl">
         <div class="img" style="direction:ltr">
-          <video src="shop-tour.mp4" autoplay muted loop playsinline preload="auto"
+          <video src="videos/shop-tour.mp4" autoplay muted loop playsinline preload="auto"
             style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
           </video>
         </div>
@@ -718,7 +807,7 @@
         <!-- Right: founder card -->
         <div class="founder-card-v">
           <div class="founder-avatar-v" id="founder-avatar">
-            <img src="founder.png" alt="Mr. Kiran Kumar"
+            <img src="images/founder.png" alt="Mr. Kiran Kumar"
               style="width:100%;height:100%;object-fit:cover;display:block;"
               onerror="document.getElementById('founder-avatar').innerHTML='KK';">
           </div>
@@ -923,6 +1012,16 @@
               <span class="k" data-i18n="contact_email_k">EMAIL</span>
               <span class="v"><a href="mailto:aakashelectronics.blr@gmail.com" style="color:var(--blue)">aakashelectronics.blr@gmail.com</a></span>
             </div>
+            <div class="contact-r">
+              <span class="k">BULK ORDER?</span>
+              <span class="v">
+                <a href="quote.html"
+                   style="display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:8px 16px;border-radius:6px;font-size:14px;font-weight:600;width:fit-content">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  Request a Quote
+                </a>
+              </span>
+            </div>
           </div>
 
           <div style="margin-top:36px;border-radius:10px;overflow:hidden;border:1px solid var(--rule)">
@@ -990,6 +1089,7 @@
             <div class="footer-links">
               <a href="#about">Our Story</a>
               <a href="#contact">Contact Us</a>
+              <a href="quote.html">Request a Quote</a>
             </div>
           </div>
           <div class="footer-link-group">

@@ -1,0 +1,328 @@
+<!-- Copyright © 2026 Aakash Electronics. All Rights Reserved.
+     Unauthorized copying or reproduction is strictly prohibited. -->
+
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3M3N1SLD9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y3M3N1SLD9');
+</script>
+<meta charset="utf-8"/>
+<title>Guides &amp; Resources — Aakash Electronics</title>
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Aakash Electronics">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Practical guides on sourcing electronic components, buying guides for students and makers, and B2B procurement advice from Aakash Electronics, SP Road, Bengaluru."/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800&family=JetBrains+Mono:wght@400;500;700&display=swap"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+
+/* ── Guides hero ── */
+.gd-hero { background: var(--ink); padding: 52px 0 44px; position: relative; overflow: hidden }
+.gd-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 70% 50%, rgba(30,58,138,.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.gd-hero-inner { position: relative; z-index: 1 }
+.gd-hero-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #4a4a47; margin-bottom: 14px;
+}
+.gd-hero h1 { font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 10px }
+.gd-hero h1 em { color: var(--blue-2); font-style: normal }
+.gd-hero-sub { font-size: 15px; color: #5a5a58; line-height: 1.6; max-width: 560px }
+
+/* ── Category filter tabs ── */
+.gd-tabbar {
+  position: sticky; top: 64px; z-index: 80;
+  background: var(--bg); border-bottom: 1px solid var(--rule);
+  overflow-x: auto; display: flex; scrollbar-width: none;
+}
+.gd-tabbar::-webkit-scrollbar { display: none }
+.gd-tab {
+  padding: 13px 20px; font-size: 12px; font-weight: 600;
+  white-space: nowrap; cursor: pointer; background: none; border: none; font-family: inherit;
+  color: var(--ink-3); border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s; flex-shrink: 0;
+}
+.gd-tab:hover { color: var(--ink) }
+.gd-tab.on { color: var(--blue); border-bottom-color: var(--blue) }
+
+/* ── Grid ── */
+.gd-body { padding: 48px 0 88px }
+.gd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px }
+.gd-card {
+  display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: 10px;
+  padding: 26px 24px; background: var(--bg);
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.gd-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: var(--blue) }
+.gd-cat-tag {
+  display: inline-flex; align-items: center; font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px; margin-bottom: 16px; width: fit-content;
+}
+.gd-card h3 { font-size: 16.5px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; margin-bottom: 10px; color: var(--ink) }
+.gd-card p { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin-bottom: 20px; flex: 1 }
+.gd-card-cta { font-size: 13px; font-weight: 700; color: var(--blue); display: inline-flex; align-items: center; gap: 6px }
+.gd-card .arrow { transition: transform .2s }
+.gd-card:hover .arrow { transform: translateX(4px) }
+
+.gd-loading { text-align: center; padding: 80px 0; color: var(--ink-3); font-size: 14px }
+.gd-empty { display: none; text-align: center; padding: 60px 0; color: var(--ink-3); font-size: 14px }
+.gd-empty.on { display: block }
+
+/* Category tag colors */
+.tag-blue { background: var(--blue-3); color: var(--blue) }
+.tag-gold { background: #fef3c7; color: #92400e }
+.tag-green { background: #dcfce7; color: #15803d }
+.tag-red { background: var(--red-3); color: var(--red-2) }
+
+@media (max-width: 900px) { .gd-grid { grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 640px) {
+  .gd-hero h1 { font-size: 26px }
+  .gd-grid { grid-template-columns: 1fr }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Utility bar -->
+  <div class="utility">
+    <div class="wrap">
+      <div class="ut-left">
+        <span>OPEN MON–SAT · 10:00–20:00</span>
+        <span>S.P ROAD, BENGALURU</span>
+      </div>
+      <div class="ut-right">
+        <span class="phone">+91 99800 22755 &nbsp;·&nbsp; 080 4114 0174</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="main-header">
+    <div class="wrap">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="Aakash Electronics" class="brand-logo-main" id="brand-logo-img">
+        <span class="brand-mark" id="brand-fallback-letter" style="display:none"><span>AE</span></span>
+        <span>
+          <div class="brand-name">Aakash Electronics</div>
+          <div class="brand-sub">SP Road · Bengaluru</div>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#about">About</a>
+        <a href="products.html">Search Parts</a>
+        <a href="portfolio.html">Catalogues</a>
+        <a href="guides.html">Guides</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="index.html#contact" style="justify-content:center;">Visit Shop</a>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="products.html">Search Parts</a>
+      <a href="portfolio.html">Catalogues</a>
+      <a href="guides.html">Guides</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="index.html#contact" class="mob-cta">Visit Shop</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="gd-hero">
+    <div class="wrap gd-hero-inner">
+      <div class="gd-hero-eyebrow">Aakash Electronics · SP Road, Bengaluru</div>
+      <h1>Guides <em>&amp; Resources</em></h1>
+      <p class="gd-hero-sub">Practical sourcing and buying guides, for procurement teams, students, and makers alike.</p>
+    </div>
+  </div>
+
+  <!-- Category tabs -->
+  <div class="gd-tabbar" id="gd-tabbar">
+    <button class="gd-tab on" data-cat="all">All Guides</button>
+  </div>
+
+  <!-- Grid -->
+  <section class="gd-body">
+    <div class="wrap">
+      <div class="gd-loading" id="gd-loading">Loading guides…</div>
+      <div class="gd-empty" id="gd-empty">No guides in this category yet.</div>
+      <div class="gd-grid" id="gd-grid"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top footer-top-v2">
+        <div>
+          <div class="footer-shop-name">Aakash Electronics</div>
+          <div class="footer-shop-desc">30+ years supplying electronic components to engineers, students, and makers, from the same SP Road counter since 1994.</div>
+          <a href="https://wa.me/919980022755?text=Hi%20Aakash%20Electronics%2C%20I%20would%20like%20to%20enquire%20about%20components." target="_blank" rel="noopener" class="footer-wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div>
+          <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">SHOP DETAILS</h5>
+          <div class="footer-dl">
+            <div class="footer-dl-row"><span class="footer-dl-k">Address</span><span class="footer-dl-v">#84/4, 1st Floor, N.G.M Plaza, S.P Road, Bengaluru – 560002</span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Hours</span><span class="footer-dl-v">Mon–Sat · 10:00 AM – 8:00 PM</span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Phone</span><span class="footer-dl-v"><a href="tel:+919980022755">+91 99800 22755</a><br><a href="tel:+918041140174">080 4114 0174</a></span></div>
+            <div class="footer-dl-row"><span class="footer-dl-k">Email</span><span class="footer-dl-v"><a href="mailto:aakashelectronics.blr@gmail.com">aakashelectronics.blr@gmail.com</a></span></div>
+          </div>
+        </div>
+        <div>
+          <div class="footer-link-group">
+            <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">NAVIGATE</h5>
+            <div class="footer-links">
+              <a href="index.html">Home</a>
+              <a href="products.html">Search Parts</a>
+              <a href="portfolio.html">Catalogues</a>
+              <a href="index.html#contact">Contact Us</a>
+              <a href="quote.html">Request a Quote</a>
+            </div>
+          </div>
+          <div class="footer-link-group">
+            <h5 style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#3a3a38;margin-bottom:20px;">LEGAL</h5>
+            <div class="footer-links">
+              <a href="./terms.html">Terms &amp; Conditions</a>
+              <a href="./terms.html#privacy">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Aakash Electronics · SP Road, Bengaluru · Est. 1994</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="guides-data.js"></script>
+<script>
+(function(){
+
+  /* ── Logo fallback ── */
+  var li = document.getElementById('brand-logo-img');
+  var lf = document.getElementById('brand-fallback-letter');
+  function hideLogo(){ if(li) li.style.display='none'; if(lf) lf.style.display='flex'; }
+  if(li){ li.addEventListener('error', hideLogo); if(li.complete && li.naturalWidth===0) hideLogo(); else if(lf) lf.style.display='none'; }
+
+  /* ── Sticky header shadow ── */
+  var hdr = document.getElementById('main-header');
+  if(hdr) window.addEventListener('scroll', function(){ hdr.classList.toggle('scrolled', window.scrollY>10); }, {passive:true});
+
+  /* ── Mobile hamburger ── */
+  var hbg = document.getElementById('nav-hamburger');
+  var mnv = document.getElementById('mobile-nav');
+  if(hbg && mnv){
+    hbg.addEventListener('click', function(){
+      var o = mnv.classList.toggle('open');
+      hbg.classList.toggle('open', o);
+      hbg.setAttribute('aria-expanded', o);
+    });
+    mnv.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        mnv.classList.remove('open'); hbg.classList.remove('open');
+        hbg.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* ══ GUIDES GRID ══ */
+  var CAT_COLORS = { 'B2B & Bulk Supply':'tag-blue', 'Buying Guides':'tag-gold', 'Education & Institutions':'tag-green',
+                      'Emerging Sectors':'tag-red', 'Robotics & Prototyping':'tag-blue', 'Company Story':'tag-gold' };
+
+  function parseFrontmatter(raw){
+    var m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
+    if (!m) return null;
+    var fm = {}, lines = m[1].split('\n');
+    lines.forEach(function(line){
+      var idx = line.indexOf(':');
+      if (idx === -1) return;
+      var key = line.slice(0, idx).trim();
+      var val = line.slice(idx + 1).trim().replace(/^"(.*)"$/, '$1');
+      fm[key] = val;
+    });
+    return { meta: fm, body: m[2] };
+  }
+
+  var gridEl = document.getElementById('gd-grid');
+  var loadingEl = document.getElementById('gd-loading');
+  var emptyEl = document.getElementById('gd-empty');
+  var tabbarEl = document.getElementById('gd-tabbar');
+  var posts = [];
+  var activeCat = 'all';
+
+  function render(){
+    var filtered = activeCat === 'all' ? posts : posts.filter(function(p){ return p.meta.category === activeCat; });
+    gridEl.innerHTML = filtered.map(function(p){
+      var tagClass = CAT_COLORS[p.meta.category] || 'tag-blue';
+      return '<a class="gd-card" href="guide.html?slug=' + encodeURIComponent(p.meta.slug) + '">' +
+        '<span class="gd-cat-tag ' + tagClass + '">' + p.meta.category + '</span>' +
+        '<h3>' + p.meta.title + '</h3>' +
+        '<p>' + p.meta.meta_description + '</p>' +
+        '<span class="gd-card-cta">Read Guide <span class="arrow">→</span></span>' +
+      '</a>';
+    }).join('');
+    emptyEl.classList.toggle('on', filtered.length === 0);
+  }
+
+  Promise.all(GUIDE_FILES.map(function(f){
+    return fetch('guides/' + f).then(function(r){ return r.text(); }).then(function(raw){
+      var parsed = parseFrontmatter(raw);
+      return parsed ? parsed.meta : null;
+    }).catch(function(){ return null; });
+  })).then(function(results){
+    posts = results.filter(Boolean).map(function(meta){ return { meta: meta }; });
+
+    var cats = [];
+    posts.forEach(function(p){ if (cats.indexOf(p.meta.category) === -1) cats.push(p.meta.category); });
+    cats.forEach(function(c){
+      var btn = document.createElement('button');
+      btn.className = 'gd-tab'; btn.dataset.cat = c; btn.textContent = c;
+      tabbarEl.appendChild(btn);
+    });
+    tabbarEl.querySelectorAll('.gd-tab').forEach(function(t){
+      t.addEventListener('click', function(){
+        tabbarEl.querySelectorAll('.gd-tab').forEach(function(x){ x.classList.remove('on'); });
+        t.classList.add('on');
+        activeCat = t.dataset.cat;
+        render();
+      });
+    });
+
+    loadingEl.style.display = 'none';
+    render();
+  });
+
+})();
+</script>
+</body>
+</html>
