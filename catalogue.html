@@ -310,21 +310,24 @@ function main(){
 
   /* ══ CATALOGUE REGISTRY ══ */
   var CATALOGUES = {
-    'sensor-modules':            { num: '01', title: 'Sensor Modules',              file: 'pdfs/sensor-modules.pdf',              sub: 'PIR, gas, temperature, RFID, and RF sensor modules — with pinouts and specs at a glance.' },
-    'boards-displays':           { num: '02', title: 'Boards &amp; Displays',       file: 'pdfs/boards-displays.pdf',             sub: 'Development boards, LCDs, OLEDs, and display modules for your next build.' },
-    'wireless-connectivity':     { num: '03', title: 'Wireless &amp; Connectivity', file: 'pdfs/wireless-connectivity.pdf',       sub: 'Wi-Fi, Bluetooth, RF, and GSM modules for connected projects.' },
-    'amplifier-audio-boards':    { num: '04', title: 'Amplifier &amp; Audio Boards', file: 'pdfs/amplifier-audio-boards.pdf',     sub: 'Audio amplifier ICs, boards, and modules for sound and signal projects.' },
-    'power-voltage-modules':     { num: '05', title: 'Power &amp; Voltage Modules', file: 'pdfs/power-voltage-modules.pdf',       sub: 'Regulators, converters, and voltage modules to power any circuit.' },
-    'control-battery-modules':   { num: '06', title: 'Control &amp; Battery Modules', file: 'pdfs/control-battery-modules.pdf',   sub: 'Microcontroller, relay, and battery management modules.' },
-    'motors-motion':             { num: '07', title: 'Motors &amp; Motion',         file: 'pdfs/motors-motion.pdf',               sub: 'Motors, drivers, and motion-control modules for robotics and automation.' },
-    'robotics-mechanical':       { num: '08', title: 'Robotics &amp; Mechanical',   file: 'pdfs/robotics-mechanical.pdf',         sub: 'Chassis, wheels, brackets, and mechanical parts for robotics builds.' },
-    'accessories-diy-kits':      { num: '09', title: 'Accessories &amp; DIY Kits',  file: 'pdfs/accessories-diy-kits.pdf',        sub: 'Starter kits, tools, and accessories for hobbyists and students.' },
-    'cables-leads':              { num: '10', title: 'Cables &amp; Leads',          file: 'pdfs/cables-leads.pdf',                sub: 'Wires, leads, and cable assemblies for every connection.' },
-    'power-supplies-adaptors':   { num: '11', title: 'Power Supplies &amp; Adaptors', file: 'pdfs/power-supplies-adaptors.pdf',   sub: 'SMPS units, laptop adaptors, and regulated power supplies.' },
-    'connectors-sockets':        { num: '12', title: 'Connectors &amp; Sockets',    file: 'pdfs/connectors-sockets.pdf',          sub: 'Connectors, sockets, and terminals for every kind of connection.' },
-    'speakers-audio-hardware':   { num: '13', title: 'Speakers &amp; Audio Hardware', file: 'pdfs/speakers-audio-hardware.pdf',   sub: 'Speakers, drivers, and audio hardware for sound projects.' },
-    'switches-potentiometers':   { num: '14', title: 'Switches &amp; Potentiometers', file: 'pdfs/switches-potentiometers.pdf',   sub: 'Toggle, tact, and rocker switches, plus potentiometers and trimmers.' },
-    'tools-test-gear':           { num: '15', title: 'Tools &amp; Test Gear',       file: 'pdfs/tools-test-gear.pdf',             sub: 'Soldering equipment, hand tools, and test instruments for the bench.' }
+    'passive-components':        { num: '01', title: 'Passive Components',         file: 'pdfs/passive-components.pdf',          sub: 'Resistors, capacitors, and inductors across common value ranges.' },
+    'transistor-diodes':         { num: '02', title: 'Transistors &amp; Diodes',    file: 'pdfs/transistor-diodes.pdf',           sub: 'Transistors, diodes, and rectifiers for switching and signal circuits.' },
+    'ic-audio':                  { num: '03', title: 'ICs &amp; Audio Modules',     file: 'pdfs/ic-audio.pdf',                    sub: 'Integrated circuits and audio amplifier modules — TDA, LA, STK, and more.' },
+    'sensor-modules':            { num: '04', title: 'Sensor Modules',              file: 'pdfs/sensor-modules.pdf',              sub: 'PIR, gas, temperature, RFID, and RF sensor modules — with pinouts and specs at a glance.' },
+    'boards-displays':           { num: '05', title: 'Boards &amp; Displays',       file: 'pdfs/boards-displays.pdf',             sub: 'Development boards, LCDs, OLEDs, and display modules for your next build.' },
+    'wireless-connectivity':     { num: '06', title: 'Wireless &amp; Connectivity', file: 'pdfs/wireless-connectivity.pdf',       sub: 'Wi-Fi, Bluetooth, RF, and GSM modules for connected projects.' },
+    'amplifier-audio-boards':    { num: '07', title: 'Amplifier &amp; Audio Boards', file: 'pdfs/amplifier-audio-boards.pdf',     sub: 'Audio amplifier ICs, boards, and modules for sound and signal projects.' },
+    'power-voltage-modules':     { num: '08', title: 'Power &amp; Voltage Modules', file: 'pdfs/power-voltage-modules.pdf',       sub: 'Regulators, converters, and voltage modules to power any circuit.' },
+    'control-battery-modules':   { num: '09', title: 'Control &amp; Battery Modules', file: 'pdfs/control-battery-modules.pdf',   sub: 'Microcontroller, relay, and battery management modules.' },
+    'motors-motion':             { num: '10', title: 'Motors &amp; Motion',         file: 'pdfs/motors-motion.pdf',               sub: 'Motors, drivers, and motion-control modules for robotics and automation.' },
+    'robotics-mechanical':       { num: '11', title: 'Robotics &amp; Mechanical',   file: 'pdfs/robotics-mechanical.pdf',         sub: 'Chassis, wheels, brackets, and mechanical parts for robotics builds.' },
+    'accessories-diy-kits':      { num: '12', title: 'Accessories &amp; DIY Kits',  file: 'pdfs/accessories-diy-kits.pdf',        sub: 'Starter kits, tools, and accessories for hobbyists and students.' },
+    'cables-leads':              { num: '13', title: 'Cables &amp; Leads',          file: 'pdfs/cables-leads.pdf',                sub: 'Wires, leads, and cable assemblies for every connection.' },
+    'power-supplies-adaptors':   { num: '14', title: 'Power Supplies &amp; Adaptors', file: 'pdfs/power-supplies-adaptors.pdf',   sub: 'SMPS units, laptop adaptors, and regulated power supplies.' },
+    'connectors-sockets':        { num: '15', title: 'Connectors &amp; Sockets',    file: 'pdfs/connectors-sockets.pdf',          sub: 'Connectors, sockets, and terminals for every kind of connection.' },
+    'speakers-audio-hardware':   { num: '16', title: 'Speakers &amp; Audio Hardware', file: 'pdfs/speakers-audio-hardware.pdf',   sub: 'Speakers, drivers, and audio hardware for sound projects.' },
+    'switches-potentiometers':   { num: '17', title: 'Switches &amp; Potentiometers', file: 'pdfs/switches-potentiometers.pdf',   sub: 'Toggle, tact, and rocker switches, plus potentiometers and trimmers.' },
+    'tools-test-gear':           { num: '18', title: 'Tools &amp; Test Gear',       file: 'pdfs/tools-test-gear.pdf',             sub: 'Soldering equipment, hand tools, and test instruments for the bench.' }
   };
 
   var slug = new URLSearchParams(location.search).get('doc');

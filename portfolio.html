@@ -356,21 +356,24 @@ function main(){
 
   /* ══ CATEGORY CATALOGUES GRID ══ */
   var CATALOGUES = [
-    { num: '01', slug: 'sensor-modules',          name: 'Sensor Modules',              desc: 'PIR, gas, temperature, RFID, and RF sensor modules.' },
-    { num: '02', slug: 'boards-displays',         name: 'Boards &amp; Displays',       desc: 'Development boards, LCDs, OLEDs, and display modules.' },
-    { num: '03', slug: 'wireless-connectivity',   name: 'Wireless &amp; Connectivity', desc: 'Wi-Fi, Bluetooth, RF, and GSM modules.' },
-    { num: '04', slug: 'amplifier-audio-boards',  name: 'Amplifier &amp; Audio Boards', desc: 'Audio amplifier ICs, boards, and modules.' },
-    { num: '05', slug: 'power-voltage-modules',   name: 'Power &amp; Voltage Modules', desc: 'Regulators, converters, and voltage modules.' },
-    { num: '06', slug: 'control-battery-modules', name: 'Control &amp; Battery Modules', desc: 'Microcontroller, relay, and battery management modules.' },
-    { num: '07', slug: 'motors-motion',           name: 'Motors &amp; Motion',         desc: 'Motors, drivers, and motion-control modules.' },
-    { num: '08', slug: 'robotics-mechanical',     name: 'Robotics &amp; Mechanical',   desc: 'Chassis, wheels, brackets, and mechanical parts.' },
-    { num: '09', slug: 'accessories-diy-kits',    name: 'Accessories &amp; DIY Kits',  desc: 'Starter kits, tools, and accessories.' },
-    { num: '10', slug: 'cables-leads',            name: 'Cables &amp; Leads',          desc: 'Wires, leads, and cable assemblies.' },
-    { num: '11', slug: 'power-supplies-adaptors', name: 'Power Supplies &amp; Adaptors', desc: 'SMPS units, laptop adaptors, and regulated supplies.' },
-    { num: '12', slug: 'connectors-sockets',      name: 'Connectors &amp; Sockets',    desc: 'Connectors, sockets, and terminals.' },
-    { num: '13', slug: 'speakers-audio-hardware', name: 'Speakers &amp; Audio Hardware', desc: 'Speakers, drivers, and audio hardware.' },
-    { num: '14', slug: 'switches-potentiometers', name: 'Switches &amp; Potentiometers', desc: 'Toggle, tact, and rocker switches, plus potentiometers.' },
-    { num: '15', slug: 'tools-test-gear',         name: 'Tools &amp; Test Gear',       desc: 'Soldering equipment, hand tools, and test instruments.' }
+    { num: '01', slug: 'passive-components',      name: 'Passive Components',          desc: 'Resistors, capacitors, and inductors across common value ranges.' },
+    { num: '02', slug: 'transistor-diodes',       name: 'Transistors &amp; Diodes',    desc: 'Transistors, diodes, and rectifiers for switching and signal circuits.' },
+    { num: '03', slug: 'ic-audio',                name: 'ICs &amp; Audio Modules',     desc: 'Integrated circuits and audio amplifier modules.' },
+    { num: '04', slug: 'sensor-modules',          name: 'Sensor Modules',              desc: 'PIR, gas, temperature, RFID, and RF sensor modules.' },
+    { num: '05', slug: 'boards-displays',         name: 'Boards &amp; Displays',       desc: 'Development boards, LCDs, OLEDs, and display modules.' },
+    { num: '06', slug: 'wireless-connectivity',   name: 'Wireless &amp; Connectivity', desc: 'Wi-Fi, Bluetooth, RF, and GSM modules.' },
+    { num: '07', slug: 'amplifier-audio-boards',  name: 'Amplifier &amp; Audio Boards', desc: 'Audio amplifier ICs, boards, and modules.' },
+    { num: '08', slug: 'power-voltage-modules',   name: 'Power &amp; Voltage Modules', desc: 'Regulators, converters, and voltage modules.' },
+    { num: '09', slug: 'control-battery-modules', name: 'Control &amp; Battery Modules', desc: 'Microcontroller, relay, and battery management modules.' },
+    { num: '10', slug: 'motors-motion',           name: 'Motors &amp; Motion',         desc: 'Motors, drivers, and motion-control modules.' },
+    { num: '11', slug: 'robotics-mechanical',     name: 'Robotics &amp; Mechanical',   desc: 'Chassis, wheels, brackets, and mechanical parts.' },
+    { num: '12', slug: 'accessories-diy-kits',    name: 'Accessories &amp; DIY Kits',  desc: 'Starter kits, tools, and accessories.' },
+    { num: '13', slug: 'cables-leads',            name: 'Cables &amp; Leads',          desc: 'Wires, leads, and cable assemblies.' },
+    { num: '14', slug: 'power-supplies-adaptors', name: 'Power Supplies &amp; Adaptors', desc: 'SMPS units, laptop adaptors, and regulated supplies.' },
+    { num: '15', slug: 'connectors-sockets',      name: 'Connectors &amp; Sockets',    desc: 'Connectors, sockets, and terminals.' },
+    { num: '16', slug: 'speakers-audio-hardware', name: 'Speakers &amp; Audio Hardware', desc: 'Speakers, drivers, and audio hardware.' },
+    { num: '17', slug: 'switches-potentiometers', name: 'Switches &amp; Potentiometers', desc: 'Toggle, tact, and rocker switches, plus potentiometers.' },
+    { num: '18', slug: 'tools-test-gear',         name: 'Tools &amp; Test Gear',       desc: 'Soldering equipment, hand tools, and test instruments.' }
   ];
   var ccGrid = document.getElementById('cc-grid');
   if (ccGrid) {
