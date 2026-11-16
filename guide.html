@@ -13,7 +13,7 @@
   gtag('config', 'G-Y3M3N1SLD9');
 </script>
 <meta charset="utf-8"/>
-<title id="doc-title">Guide — Aakash Electronics</title>
+<title id="doc-title">Guide - Aakash Electronics</title>
 <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -298,7 +298,7 @@
 
     if (!current) { showError(); return; }
 
-    document.getElementById('doc-title').textContent = current.meta.title + ' — Aakash Electronics';
+    document.getElementById('doc-title').textContent = current.meta.title + ' - Aakash Electronics';
     document.getElementById('doc-meta-desc').setAttribute('content', current.meta.meta_description || '');
     h1El.textContent = current.meta.title;
     var tagClass = CAT_COLORS[current.meta.category] || 'tag-blue';
@@ -307,7 +307,7 @@
     catEl.style.display = 'inline-flex';
 
     var bodyMd = current.body
-      .replace(/^\s*#\s+.+\n+/, '') /* strip the leading H1 — already shown in the hero above */
+      .replace(/^\s*#\s+.+\n+/, '') /* strip the leading H1 - already shown in the hero above */
       .replace(/\]\(\/contact\)/g, '](index.html#contact)')
       .replace(/\]\(\/products\)/g, '](products.html)');
     articleEl.innerHTML = marked.parse(bodyMd);

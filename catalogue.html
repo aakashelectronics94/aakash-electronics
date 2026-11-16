@@ -13,7 +13,7 @@
   gtag('config', 'G-Y3M3N1SLD9');
 </script>
 <meta charset="utf-8"/>
-<title id="doc-title">Component Catalogue — Aakash Electronics</title>
+<title id="doc-title">Component Catalogue - Aakash Electronics</title>
 <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Aakash Electronics">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Browse Aakash Electronics component catalogues online — flip through each category brochure page by page."/>
+<meta name="description" content="Browse Aakash Electronics component catalogues online - flip through each category brochure page by page."/>
 <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
 <meta http-equiv="X-Frame-Options" content="DENY"/>
 <meta name="referrer" content="strict-origin-when-cross-origin"/>
@@ -211,7 +211,7 @@
         <button class="pf-nav-btn" id="pf-prev" aria-label="Previous page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-        <span class="pf-page-indicator" id="pf-indicator">— / —</span>
+        <span class="pf-page-indicator" id="pf-indicator">- / -</span>
         <button class="pf-nav-btn" id="pf-next" aria-label="Next page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
@@ -312,8 +312,8 @@ function main(){
   var CATALOGUES = {
     'passive-components':        { num: '01', title: 'Passive Components',         file: 'pdfs/passive-components.pdf',          sub: 'Resistors, capacitors, and inductors across common value ranges.' },
     'transistor-diodes':         { num: '02', title: 'Transistors &amp; Diodes',    file: 'pdfs/transistor-diodes.pdf',           sub: 'Transistors, diodes, and rectifiers for switching and signal circuits.' },
-    'ic-audio':                  { num: '03', title: 'ICs &amp; Audio Modules',     file: 'pdfs/ic-audio.pdf',                    sub: 'Integrated circuits and audio amplifier modules — TDA, LA, STK, and more.' },
-    'sensor-modules':            { num: '04', title: 'Sensor Modules',              file: 'pdfs/sensor-modules.pdf',              sub: 'PIR, gas, temperature, RFID, and RF sensor modules — with pinouts and specs at a glance.' },
+    'ic-audio':                  { num: '03', title: 'ICs &amp; Audio Modules',     file: 'pdfs/ic-audio.pdf',                    sub: 'Integrated circuits and audio amplifier modules - TDA, LA, STK, and more.' },
+    'sensor-modules':            { num: '04', title: 'Sensor Modules',              file: 'pdfs/sensor-modules.pdf',              sub: 'PIR, gas, temperature, RFID, and RF sensor modules - with pinouts and specs at a glance.' },
     'boards-displays':           { num: '05', title: 'Boards &amp; Displays',       file: 'pdfs/boards-displays.pdf',             sub: 'Development boards, LCDs, OLEDs, and display modules for your next build.' },
     'wireless-connectivity':     { num: '06', title: 'Wireless &amp; Connectivity', file: 'pdfs/wireless-connectivity.pdf',       sub: 'Wi-Fi, Bluetooth, RF, and GSM modules for connected projects.' },
     'amplifier-audio-boards':    { num: '07', title: 'Amplifier &amp; Audio Boards', file: 'pdfs/amplifier-audio-boards.pdf',     sub: 'Audio amplifier ICs, boards, and modules for sound and signal projects.' },
@@ -330,7 +330,7 @@ function main(){
     'tools-test-gear':           { num: '18', title: 'Tools &amp; Test Gear',       file: 'pdfs/tools-test-gear.pdf',             sub: 'Soldering equipment, hand tools, and test instruments for the bench.' }
   };
 
-  var slug = new URLSearchParams(location.search).get('doc');
+  var slug = (new URLSearchParams(location.search).get('doc') || location.hash.replace(/^#(doc=)?/, '') || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
   var entry = slug && CATALOGUES[slug];
 
   var loadingEl   = document.getElementById('pf-loading');
@@ -357,7 +357,7 @@ function main(){
     return;
   }
 
-  document.getElementById('doc-title').textContent = entry.title.replace(/&amp;/g,'&') + ' — Aakash Electronics';
+  document.getElementById('doc-title').textContent = entry.title.replace(/&amp;/g,'&') + ' - Aakash Electronics';
   document.getElementById('doc-h1').innerHTML = entry.title;
   document.getElementById('doc-sub').textContent = entry.sub;
   var numEl = document.getElementById('doc-num');

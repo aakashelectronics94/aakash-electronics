@@ -13,7 +13,7 @@
   gtag('config', 'G-Y3M3N1SLD9');
 </script>
 <meta charset="utf-8"/>
-<title>Product Portfolio — Aakash Electronics</title>
+<title>Product Portfolio - Aakash Electronics</title>
 <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -23,7 +23,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Aakash Electronics">
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Browse the Aakash Electronics product portfolio online — flip through our full catalog brochure page by page."/>
+<meta name="description" content="Browse the Aakash Electronics product portfolio online - flip through our full catalog brochure page by page."/>
 <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
 <meta http-equiv="X-Frame-Options" content="DENY"/>
 <meta name="referrer" content="strict-origin-when-cross-origin"/>
@@ -247,7 +247,7 @@
         <button class="pf-nav-btn" id="pf-prev" aria-label="Previous page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-        <span class="pf-page-indicator" id="pf-indicator">— / —</span>
+        <span class="pf-page-indicator" id="pf-indicator">- / -</span>
         <button class="pf-nav-btn" id="pf-next" aria-label="Next page">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
@@ -264,7 +264,7 @@
       <div class="cc-head">
         <div class="cc-tag">BY CATEGORY</div>
         <h2>A closer look, category by category.</h2>
-        <p>The portfolio above is the overview. These go deeper into each category — the same page-by-page reading experience, focused on one part of what we stock.</p>
+        <p>The portfolio above is the overview. These go deeper into each category - the same page-by-page reading experience, focused on one part of what we stock.</p>
       </div>
       <div class="cc-grid" id="cc-grid"></div>
     </div>
@@ -378,7 +378,7 @@ function main(){
   var ccGrid = document.getElementById('cc-grid');
   if (ccGrid) {
     ccGrid.innerHTML = CATALOGUES.map(function(c){
-      return '<a class="cc-card" href="catalogue.html?doc=' + c.slug + '">' +
+      return '<a class="cc-card" href="catalogue.html?doc=' + c.slug + '#' + c.slug + '">' +
         '<div class="cc-card-num">' + c.num + '</div>' +
         '<div class="cc-card-name">' + c.name + '</div>' +
         '<div class="cc-card-desc">' + c.desc + '</div>' +

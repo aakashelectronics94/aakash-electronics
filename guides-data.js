@@ -4,7 +4,7 @@
 */
 /* List every guide's markdown filename here. To add a new guide, drop the .md
    file into /guides (with the same frontmatter format as the others) and add
-   its filename to this list — both guides.html and guide.html read from it. */
+   its filename to this list - both guides.html and guide.html read from it. */
 window.GUIDE_FILES = [
   '01-sourcing-components-manufacturing-units-india.md',
   '02-arduino-vs-raspberry-pi-vs-esp32.md',
