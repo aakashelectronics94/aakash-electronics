@@ -1,7 +1,7 @@
 ---
 title: "PCB Prototyping 101: From Design to Sourcing Components in Bengaluru"
 slug: pcb-prototyping-101-sourcing-bengaluru
-category: Buying Guides
+category: Projects & Prototyping
 target_audience: Hardware startups, engineering students, hobbyists moving from breadboard to PCB
 meta_description: "A beginner-friendly walkthrough of PCB prototyping, from design basics to sourcing the right components in Bengaluru, for students and hardware startups."
 ---

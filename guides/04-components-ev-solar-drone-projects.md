@@ -1,7 +1,7 @@
 ---
 title: "Components for EV, Solar & Drone Projects: A Sourcing Guide for Indian Hardware Teams"
 slug: components-ev-solar-drone-sourcing-guide
-category: Emerging Sectors
+category: Projects & Prototyping
 target_audience: Hardware startups, EV integrators, drone builders, solar/agri-tech IoT teams
 meta_description: "What components EV, solar, and drone hardware teams in India actually need to source, motors, power modules, sensors, and connectors, and how to plan procurement."
 ---

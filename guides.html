@@ -89,6 +89,14 @@
 .gd-empty { display: none; text-align: center; padding: 60px 0; color: var(--ink-3); font-size: 14px }
 .gd-empty.on { display: block }
 
+/* Grouped sections (All Guides view) */
+.gd-group { margin-bottom: 56px }
+.gd-group:last-child { margin-bottom: 0 }
+.gd-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--rule); margin-bottom: 10px }
+.gd-group-head h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink) }
+.gd-group-head span { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3) }
+.gd-group-desc { font-size: 14px; color: var(--ink-3); line-height: 1.6; margin-bottom: 22px }
+
 /* Category tag colors */
 .tag-blue { background: var(--blue-3); color: var(--blue) }
 .tag-gold { background: #fef3c7; color: #92400e }
@@ -171,7 +179,7 @@
     <div class="wrap">
       <div class="gd-loading" id="gd-loading">Loading guides…</div>
       <div class="gd-empty" id="gd-empty">No guides in this category yet.</div>
-      <div class="gd-grid" id="gd-grid"></div>
+      <div id="gd-grid"></div>
     </div>
   </section>
 
@@ -256,8 +264,18 @@
   }
 
   /* ══ GUIDES GRID ══ */
-  var CAT_COLORS = { 'B2B & Bulk Supply':'tag-blue', 'Buying Guides':'tag-gold', 'Education & Institutions':'tag-green',
-                      'Emerging Sectors':'tag-red', 'Robotics & Prototyping':'tag-blue', 'Company Story':'tag-gold' };
+  var CAT_COLORS = { 'Buying in Bengaluru':'tag-gold', 'Bulk & Business Buying':'tag-blue', 'Students & Labs':'tag-green',
+                      'Learn the Basics':'tag-red', 'Choosing Components':'tag-blue', 'Projects & Prototyping':'tag-green' };
+
+  /* Category order and one-line descriptions - tabs and the "All Guides" sections follow this order */
+  var CATS = [
+    { name: 'Buying in Bengaluru',    desc: 'Where and how to buy components in Bengaluru, and how to avoid poor-quality parts.' },
+    { name: 'Bulk & Business Buying', desc: 'For manufacturers, installers and institutions buying in volume.' },
+    { name: 'Students & Labs',        desc: 'Project shopping lists, board comparisons and lab setup for colleges.' },
+    { name: 'Learn the Basics',       desc: 'Core electronics skills: component types, reading codes and soldering.' },
+    { name: 'Choosing Components',    desc: 'How to pick the right sensor, regulator, switch, driver, supply or amplifier.' },
+    { name: 'Projects & Prototyping', desc: 'Planning and sourcing for PCBs, robots, EVs, solar and drones.' }
+  ];
 
   function parseFrontmatter(raw){
     var m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
@@ -280,18 +298,33 @@
   var posts = [];
   var activeCat = 'all';
 
+  function cardHtml(p){
+    var tagClass = CAT_COLORS[p.meta.category] || 'tag-blue';
+    var s = encodeURIComponent(p.meta.slug);
+    return '<a class="gd-card" href="guide.html?slug=' + s + '#' + s + '">' +
+      '<span class="gd-cat-tag ' + tagClass + '">' + p.meta.category + '</span>' +
+      '<h3>' + p.meta.title + '</h3>' +
+      '<p>' + p.meta.meta_description + '</p>' +
+      '<span class="gd-card-cta">Read Guide <span class="arrow">→</span></span>' +
+    '</a>';
+  }
+
   function render(){
-    var filtered = activeCat === 'all' ? posts : posts.filter(function(p){ return p.meta.category === activeCat; });
-    gridEl.innerHTML = filtered.map(function(p){
-      var tagClass = CAT_COLORS[p.meta.category] || 'tag-blue';
-      return '<a class="gd-card" href="guide.html?slug=' + encodeURIComponent(p.meta.slug) + '">' +
-        '<span class="gd-cat-tag ' + tagClass + '">' + p.meta.category + '</span>' +
-        '<h3>' + p.meta.title + '</h3>' +
-        '<p>' + p.meta.meta_description + '</p>' +
-        '<span class="gd-card-cta">Read Guide <span class="arrow">→</span></span>' +
-      '</a>';
-    }).join('');
-    emptyEl.classList.toggle('on', filtered.length === 0);
+    var html = '', count = 0;
+    CATS.forEach(function(c){
+      if (activeCat !== 'all' && activeCat !== c.name) return;
+      var items = posts.filter(function(p){ return p.meta.category === c.name; });
+      if (!items.length) return;
+      count += items.length;
+      if (activeCat === 'all') {
+        html += '<div class="gd-group"><div class="gd-group-head"><h2>' + c.name + '</h2><span>' + items.length + (items.length === 1 ? ' guide' : ' guides') + '</span></div>' +
+          '<p class="gd-group-desc">' + c.desc + '</p><div class="gd-grid">' + items.map(cardHtml).join('') + '</div></div>';
+      } else {
+        html += '<p class="gd-group-desc">' + c.desc + '</p><div class="gd-grid">' + items.map(cardHtml).join('') + '</div>';
+      }
+    });
+    gridEl.innerHTML = html;
+    emptyEl.classList.toggle('on', count === 0);
   }
 
   Promise.all(GUIDE_FILES.map(function(f){
@@ -302,11 +335,10 @@
   })).then(function(results){
     posts = results.filter(Boolean).map(function(meta){ return { meta: meta }; });
 
-    var cats = [];
-    posts.forEach(function(p){ if (cats.indexOf(p.meta.category) === -1) cats.push(p.meta.category); });
-    cats.forEach(function(c){
+    CATS.forEach(function(c){
+      if (!posts.some(function(p){ return p.meta.category === c.name; })) return;
       var btn = document.createElement('button');
-      btn.className = 'gd-tab'; btn.dataset.cat = c; btn.textContent = c;
+      btn.className = 'gd-tab'; btn.dataset.cat = c.name; btn.textContent = c.name;
       tabbarEl.appendChild(btn);
     });
     tabbarEl.querySelectorAll('.gd-tab').forEach(function(t){

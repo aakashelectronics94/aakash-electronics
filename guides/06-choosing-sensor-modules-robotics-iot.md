@@ -1,7 +1,7 @@
 ---
 title: "Choosing the Right Sensor Module for Your Robotics or IoT Project"
 slug: choosing-sensor-modules-robotics-iot
-category: Buying Guides
+category: Choosing Components
 target_audience: Robotics club members, IoT hobbyists, hardware startup engineers
 meta_description: "How to choose the right sensor module for robotics and IoT projects, ultrasonic, IR, environmental, and motion sensors compared by use case."
 ---

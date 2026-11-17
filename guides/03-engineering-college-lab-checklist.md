@@ -1,7 +1,7 @@
 ---
 title: "Setting Up an Engineering College Electronics Lab: Complete Component Checklist"
 slug: engineering-college-electronics-lab-checklist
-category: Education & Institutions
+category: Students & Labs
 target_audience: College lab coordinators, department heads, procurement committees at engineering institutions
 meta_description: "A practical checklist for setting up or restocking an engineering college electronics lab, development boards, sensor kits, tools, and test equipment."
 ---

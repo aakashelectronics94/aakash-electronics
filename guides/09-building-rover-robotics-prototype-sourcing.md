@@ -1,7 +1,7 @@
 ---
 title: "Building a Rover or Robotics Prototype: Component Sourcing from Motors to Sensors"
 slug: building-rover-robotics-prototype-component-sourcing
-category: Robotics & Prototyping
+category: Projects & Prototyping
 target_audience: Hardware startups, robotics club members, hackathon teams
 meta_description: "A stage-by-stage guide to sourcing components for a rover or robotics prototype, chassis, motors, sensors, control, and power, for hardware startups and student teams."
 ---

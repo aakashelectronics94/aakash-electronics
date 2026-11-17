@@ -1,7 +1,7 @@
 ---
 title: "Sourcing Electronic Components for Manufacturing Units in India: A Buyer's Guide"
 slug: sourcing-electronic-components-manufacturing-units-india
-category: B2B & Bulk Supply
+category: Bulk & Business Buying
 target_audience: Procurement managers, plant managers, and purchasing teams at manufacturing units and MSMEs
 meta_description: "A practical guide for Indian manufacturing units on sourcing electronic components in bulk, BOM sourcing, GST invoicing, volume pricing, and vendor selection."
 ---

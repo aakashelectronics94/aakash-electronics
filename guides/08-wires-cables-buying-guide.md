@@ -1,7 +1,7 @@
 ---
 title: "Wires & Cables Buying Guide: Specifications Every Contractor and Integrator Should Know"
 slug: wires-cables-buying-guide-specifications
-category: Buying Guides
+category: Bulk & Business Buying
 target_audience: Electrical contractors, automation integrators, industrial electricians
 meta_description: "A practical specification guide to buying wires and cables for contractors and integrators: gauge, insulation, current rating, and common mistakes to avoid."
 ---

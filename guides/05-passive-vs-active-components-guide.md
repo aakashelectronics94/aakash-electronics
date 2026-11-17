@@ -1,7 +1,7 @@
 ---
 title: "Passive vs Active Components: A Practical Guide for Students and Hobbyists"
 slug: passive-vs-active-components-guide
-category: Buying Guides
+category: Learn the Basics
 target_audience: Engineering students, hobbyists, first-time electronics buyers
 meta_description: "A clear, practical explanation of passive vs active electronic components, with examples of each and where they're used in real circuits."
 ---

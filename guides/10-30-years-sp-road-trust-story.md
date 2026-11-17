@@ -1,7 +1,7 @@
 ---
 title: "30 Years on SP Road: Why Aakash Electronics Is Bengaluru's Trusted Component Sourcing Partner"
 slug: 30-years-sp-road-trusted-component-sourcing-partner
-category: Company Story
+category: Buying in Bengaluru
 target_audience: All segments, general trust/credibility content
 meta_description: "The story of Aakash Electronics, 30+ years on SP Road, Bengaluru, supplying manufacturing units, educational institutions, and hobbyists since 1994."
 ---

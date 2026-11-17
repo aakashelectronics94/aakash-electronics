@@ -255,8 +255,8 @@
   }
 
   /* ══ GUIDE READER ══ */
-  var CAT_COLORS = { 'B2B & Bulk Supply':'tag-blue', 'Buying Guides':'tag-gold', 'Education & Institutions':'tag-green',
-                      'Emerging Sectors':'tag-red', 'Robotics & Prototyping':'tag-blue', 'Company Story':'tag-gold' };
+  var CAT_COLORS = { 'Buying in Bengaluru':'tag-gold', 'Bulk & Business Buying':'tag-blue', 'Students & Labs':'tag-green',
+                      'Learn the Basics':'tag-red', 'Choosing Components':'tag-blue', 'Projects & Prototyping':'tag-green' };
 
   function parseFrontmatter(raw){
     var m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
@@ -272,7 +272,7 @@
     return { meta: fm, body: m[2] };
   }
 
-  var slug = new URLSearchParams(location.search).get('slug');
+  var slug = (new URLSearchParams(location.search).get('slug') || location.hash.replace(/^#/, '') || '').replace(/[^a-z0-9-]/gi, '');
   var loadingEl = document.getElementById('gd-loading');
   var errorEl = document.getElementById('gd-error');
   var articleEl = document.getElementById('gd-article');
@@ -309,16 +309,19 @@
     var bodyMd = current.body
       .replace(/^\s*#\s+.+\n+/, '') /* strip the leading H1 - already shown in the hero above */
       .replace(/\]\(\/contact\)/g, '](index.html#contact)')
-      .replace(/\]\(\/products\)/g, '](products.html)');
+      .replace(/\]\(\/products\)/g, '](products.html)')
+      .replace(/\]\(\/quote\)/g, '](quote.html)');
     articleEl.innerHTML = marked.parse(bodyMd);
 
     loadingEl.style.display = 'none';
 
-    /* More guides: up to 3 others */
-    var others = all.filter(function(p){ return p.meta.slug !== slug; }).slice(0, 3);
+    /* More guides: same category first, then the rest, up to 3 */
+    var rest = all.filter(function(p){ return p.meta.slug !== slug; });
+    var others = rest.filter(function(p){ return p.meta.category === current.meta.category; })
+      .concat(rest.filter(function(p){ return p.meta.category !== current.meta.category; })).slice(0, 3);
     if (others.length) {
       document.getElementById('gd-more-grid').innerHTML = others.map(function(p){
-        return '<a class="gd-more-card" href="guide.html?slug=' + encodeURIComponent(p.meta.slug) + '"><span>' + p.meta.title + '</span></a>';
+        return '<a class="gd-more-card" href="guide.html?slug=' + encodeURIComponent(p.meta.slug) + '#' + encodeURIComponent(p.meta.slug) + '"><span>' + p.meta.title + '</span></a>';
       }).join('');
       document.getElementById('gd-more').style.display = 'block';
     }

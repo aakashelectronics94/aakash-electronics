@@ -1,7 +1,7 @@
 ---
 title: "Arduino vs Raspberry Pi vs ESP32: Which Development Board for Your College Lab or Project?"
 slug: arduino-vs-raspberry-pi-vs-esp32-comparison
-category: Buying Guides
+category: Students & Labs
 target_audience: Engineering students, robotics club members, lab coordinators, hobbyists
 meta_description: "A clear comparison of Arduino, Raspberry Pi, and ESP32 for college labs and hobby projects, what each board does best, and which to buy for your use case."
 ---
